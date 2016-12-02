@@ -1,0 +1,6 @@
+---
+- name: Edit the configuration
+  replace: dest=/etc/sudoers regexp='^%(.*)$' replace='#%\1'
+#  lineinfile: dest=/etc/sudoers regexp='^%(.*)$' line='#%\1' backrefs=yes
+- name : Final sudoers file check
+  command: visudo -q -c
